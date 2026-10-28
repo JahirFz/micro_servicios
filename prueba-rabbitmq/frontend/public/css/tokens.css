@@ -1,13 +1,18 @@
 :root {
     color-scheme: light;
 
-    /* Colores del diseño de Figma */
-    --color-fondo: #ffffff;
-    --color-texto: #111827;
-    --color-secundario: #4b5563;
-    --color-borde: #6b7280;
-    --color-accion: #111827;
+    /* Paleta Fertech: petróleo, pizarra y superficies neutras. */
+    --color-fondo: #f7f9fa;
+    --color-texto: #172b33;
+    --color-secundario: #52636b;
+    --color-borde: #74858d;
+    --color-accion: #086477;
     --color-sobre-accion: #ffffff;
+
+    --color-accion-hover: #064e5d;
+    --color-acento-suave: #e4f1f4;
+    --color-foco: #086477;
+    --color-error: #b42332;
 
     /* Tipografía */
     --fuente-principal: "Inter", system-ui, sans-serif;
@@ -31,23 +36,27 @@
     --radio-control: 0.5rem;
     --altura-control: 3rem;
 
-    --color-superficie: #f9fafb;
+    --color-superficie: #f1f6f7;
     --color-elevado: #ffffff;
-    --color-divisor: #e5e7eb;
+    --color-divisor: #dce5e8;
     --radio-tarjeta: 0.75rem;
 }
 
 :root[data-tema="oscuro"] {
     color-scheme: dark;
 
-    --color-fondo: #111827;
-    --color-texto: #f9fafb;
-    --color-secundario: #d1d5db;
-    --color-borde: #9ca3af;
-    --color-accion: #f9fafb;
-    --color-sobre-accion: #111827;
+    --color-fondo: #172b33;
+    --color-texto: #f1f6f7;
+    --color-secundario: #bdcdd3;
+    --color-borde: #829ba6;
+    --color-accion: #85d3e3;
+    --color-sobre-accion: #10252d;
 
-    --color-superficie: #1f2937;
-    --color-elevado: #111827;
-    --color-divisor: #6b7280;
+    --color-superficie: #1b3039;
+    --color-elevado: #1b3039;
+    --color-divisor: #3d5661;
+    --color-accion-hover: #a7e3ee;
+    --color-acento-suave: #233f49;
+    --color-foco: #85d3e3;
+    --color-error: #ffadb4;
 }

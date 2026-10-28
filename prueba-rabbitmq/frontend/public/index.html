@@ -44,7 +44,8 @@
                 </p>
             </section>
 
-            <nav class="catalogo__navegacion" aria-label="Tu cuenta">
+            <nav class="catalogo__navegacion" aria-label="Tienda y cuenta">
+                <a href="/" class="boton boton--texto" aria-current="page">Catálogo</a>
                 <a href="/acceso.html" class="boton boton--texto">
                     Iniciar sesión
                 </a>
@@ -92,6 +93,18 @@
             >
                 <h2 id="titulo-productos">Productos disponibles</h2>
 
+                <form class="catalogo__busqueda" role="search" id="busqueda-catalogo">
+                    <div class="campo">
+                        <label class="campo__etiqueta" for="buscar-productos">Buscar productos</label>
+                        <input id="buscar-productos" class="campo__entrada" type="search"
+                            placeholder="Escribe el nombre de un producto" autocomplete="off"
+                            aria-controls="lista-productos" aria-describedby="estado-catalogo" disabled>
+                    </div>
+                    <button id="limpiar-busqueda" type="button" class="boton boton--secundario" hidden>
+                        Limpiar búsqueda
+                    </button>
+                </form>
+
                 <p
                     id="estado-catalogo"
                     class="texto-secundario texto-pequeno"
@@ -126,12 +139,11 @@
     <template id="plantilla-producto">
         <li class="tarjeta-producto">
             <div class="tarjeta-producto__ilustracion" aria-hidden="true">
-                <img
-                    src="/assets/iconos/audifonos.svg"
-                    width="56"
-                    height="56"
-                    alt=""
-                >
+                <svg class="tarjeta-producto__icono" width="64" height="64" viewBox="0 0 56 56"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" focusable="false">
+                    <use href="/assets/iconos/productos.svg#producto"></use>
+                </svg>
             </div>
 
             <h3 class="tarjeta-producto__nombre"></h3>

@@ -198,3 +198,49 @@
 .estado-vacio p {
     max-width: 32rem;
 }
+/* Estados compartidos: visibles con ratón, teclado y en ambos temas. */
+.marca {
+    color: var(--color-accion);
+    letter-spacing: -0.03em;
+}
+
+.boton {
+    transition: background-color 160ms ease-out, border-color 160ms ease-out;
+}
+
+.boton--principal:hover:not(:disabled) {
+    background: var(--color-accion-hover);
+}
+
+.boton--texto:hover,
+.boton--secundario:hover:not(:disabled) {
+    background: var(--color-acento-suave);
+}
+
+.boton[aria-current="page"] {
+    background: var(--color-acento-suave);
+    color: var(--color-accion);
+}
+
+.campo__entrada:focus-visible {
+    border-color: var(--color-foco);
+}
+
+.campo__error {
+    color: var(--color-error);
+}
+
+.campo__entrada[aria-invalid="true"],
+.control-password:has(input[aria-invalid="true"]) {
+    border-color: var(--color-error);
+}
+
+.carrito__total, .checkout__total, .admin__cantidad {
+    font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .boton {
+        transition: none;
+    }
+}

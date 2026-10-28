@@ -75,7 +75,7 @@ ol {
 }
 
 :focus-visible {
-    outline: 3px solid var(--color-texto);
+    outline: 3px solid var(--color-foco);
     outline-offset: 3px;
 }
 
@@ -93,4 +93,21 @@ ol {
     clip-path: inset(50%);
     white-space: nowrap;
     border: 0;
+}
+html {
+    scrollbar-color: var(--color-borde) var(--color-fondo);
+    scroll-padding-top: 1.5rem;
+}
+
+::selection {
+    background: var(--color-accion);
+    color: var(--color-sobre-accion);
+}
+
+input, textarea {
+    caret-color: var(--color-accion);
+}
+
+h1, h2 {
+    text-wrap: balance;
 }
