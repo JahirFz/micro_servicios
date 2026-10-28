@@ -1,0 +1,127 @@
+.pagina-pedido {
+    display: grid;
+    gap: 1.125rem;
+    width: 100%;
+    max-width: 38rem;
+    margin-inline: auto;
+    padding: var(--espacio-16);
+}
+
+.pedido__volver {
+    display: inline-flex;
+    align-items: center;
+    justify-self: start;
+    min-height: 2.75rem;
+    font-size: var(--texto-pequeno);
+    font-weight: var(--peso-semibold);
+    text-decoration: none;
+}
+
+.pedido__encabezado {
+    display: grid;
+    gap: 0.25rem;
+}
+
+.pedido__encabezado h1 {
+    font-size: 1.375rem;
+    line-height: 1.45;
+}
+
+.pedido__contenido {
+    display: grid;
+    gap: 1.125rem;
+}
+
+.pedido__estado {
+    display: grid;
+    gap: var(--espacio-8);
+    padding: var(--espacio-16);
+    border-radius: var(--radio-tarjeta);
+    background: var(--color-superficie);
+    font-size: var(--texto-pequeno);
+}
+
+.pedido__etiqueta {
+    font-weight: var(--peso-semibold);
+}
+
+.pedido__estado h2 {
+    font-size: 1.125rem;
+    line-height: 1.45;
+}
+
+.pedido__resumen {
+    display: grid;
+    gap: var(--espacio-12);
+    padding: var(--espacio-16);
+    border: 1px solid var(--color-divisor);
+    border-radius: var(--radio-tarjeta);
+    background: var(--color-elevado);
+}
+
+.pedido__resumen h2 {
+    font-size: var(--texto-normal);
+    font-weight: var(--peso-semibold);
+}
+
+.pedido__productos {
+    display: grid;
+    gap: var(--espacio-12);
+    padding: 0;
+    list-style: none;
+}
+
+.pedido__producto {
+    display: grid;
+    gap: 0.25rem;
+    font-size: var(--texto-pequeno);
+    overflow-wrap: anywhere;
+}
+
+.pedido__producto h3 {
+    font-size: inherit;
+    font-weight: var(--peso-semibold);
+}
+
+.pedido__total {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--espacio-12);
+    font-weight: var(--peso-semibold);
+}
+
+.pedido__total strong {
+    font-size: 1.125rem;
+}
+
+#mensaje-consulta:empty {
+    display: none;
+}
+
+#reintentar-pedido {
+    justify-self: start;
+}
+
+@media (min-width: 48rem) {
+    .pagina-pedido {
+        padding: var(--espacio-32) var(--espacio-24);
+    }
+}
+
+#datos-pedido {
+    display: grid;
+    gap: 0.25rem;
+    margin: 0;
+}
+
+#datos-pedido dt {
+    margin-top: var(--espacio-8);
+    font-weight: var(--peso-semibold);
+}
+
+#datos-pedido dd {
+    margin: 0;
+    color: var(--color-secundario);
+    overflow-wrap: anywhere;
+}

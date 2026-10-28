@@ -1,0 +1,200 @@
+/* Contenedor adaptable */
+.contenedor {
+    width: 100%;
+    max-width: 75rem;
+    margin-inline: auto;
+    padding-inline: var(--espacio-16);
+}
+
+/* Marca */
+.marca {
+    display: inline-block;
+    color: var(--color-texto);
+    font-size: var(--texto-titulo);
+    font-weight: var(--peso-bold);
+    line-height: 1.25;
+    text-decoration: none;
+}
+
+/* Botones y enlaces con apariencia de botón */
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espacio-8);
+    min-height: var(--altura-control);
+    padding: var(--espacio-12) var(--espacio-16);
+    border: 1px solid transparent;
+    border-radius: var(--radio-control);
+    font-size: var(--texto-pequeno);
+    font-weight: var(--peso-semibold);
+    line-height: 1.45;
+    text-align: center;
+    text-decoration: none;
+}
+
+.boton--principal {
+    background: var(--color-accion);
+    color: var(--color-sobre-accion);
+}
+
+.boton--secundario {
+    border-color: var(--color-borde);
+    background: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.boton--texto {
+    background: transparent;
+    color: var(--color-texto);
+}
+
+.boton--ancho {
+    width: 100%;
+}
+
+.boton:disabled {
+    opacity: 0.65;
+}
+
+.boton[aria-busy="true"] {
+    cursor: wait;
+}
+
+/* Formularios */
+.campo {
+    display: grid;
+    gap: var(--espacio-8);
+}
+
+.campo__etiqueta {
+    font-size: var(--texto-pequeno);
+    font-weight: var(--peso-semibold);
+    line-height: 1.45;
+}
+
+.campo__entrada {
+    width: 100%;
+    min-width: 0;
+    min-height: var(--altura-control);
+    padding: var(--espacio-12);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-control);
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    font-size: var(--texto-normal);
+    line-height: 1.5;
+}
+
+.campo__entrada::placeholder {
+    color: var(--color-secundario);
+    opacity: 1;
+}
+
+.campo__ayuda,
+.campo__error {
+    font-size: var(--texto-pequeno);
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.campo__ayuda {
+    color: var(--color-secundario);
+}
+
+.campo__error {
+    font-weight: var(--peso-semibold);
+}
+
+.campo__entrada[aria-invalid="true"] {
+    border-width: 2px;
+}
+
+/* Contraseña con control para mostrarla */
+.control-password {
+    display: flex;
+    align-items: center;
+    min-height: 3.5rem;
+    padding: 0.3125rem 0.75rem;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-control);
+    background: var(--color-fondo);
+}
+
+.control-password .campo__entrada {
+    flex: 1;
+    min-height: 2.75rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+.control-password__boton {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    margin-left: var(--espacio-8);
+    padding: 0.25rem;
+    border: 0;
+    border-radius: var(--radio-control);
+    background: transparent;
+    color: var(--color-texto);
+}
+
+.control-password:has(input[aria-invalid="true"]) {
+    border-width: 2px;
+}
+
+/* Mensajes */
+.mensaje {
+    padding: var(--espacio-12);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-control);
+    font-size: var(--texto-pequeno);
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.mensaje:empty {
+    display: none;
+}
+
+/* Texto secundario */
+.texto-secundario {
+    color: var(--color-secundario);
+}
+
+.texto-pequeno {
+    font-size: var(--texto-pequeno);
+    line-height: 1.5;
+}
+
+@media (min-width: 48rem) {
+    .contenedor {
+        padding-inline: var(--espacio-24);
+    }
+}
+
+.estado-vacio {
+    display: grid;
+    justify-items: center;
+    gap: var(--espacio-16);
+    padding: var(--espacio-32) var(--espacio-24);
+    border: 1px solid var(--color-divisor);
+    border-radius: var(--radio-tarjeta);
+    background: var(--color-superficie);
+    text-align: center;
+}
+
+.estado-vacio h2 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+.estado-vacio p {
+    max-width: 32rem;
+}

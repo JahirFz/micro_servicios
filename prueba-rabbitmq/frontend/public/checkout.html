@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Revisar compra | Fertech</title>
+
+    <link rel="stylesheet" href="/css/tokens.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/componentes.css">
+    <link rel="stylesheet" href="/css/pantallas/checkout.css">
+    <script type="module" src="/js/paginas/checkout.js"></script>
+    <script src="/js/tema.js"></script>
+    <link rel="stylesheet" href="/css/fuentes.css">
+</head>
+
+<body>
+    <main class="checkout">
+        <nav class="checkout__navegacion" aria-label="Navegación de compra">
+            <a href="/carrito.html" class="boton boton--texto">
+                ← Volver al carrito
+            </a>
+
+            <button
+                id="cambiar-tema"
+                class="boton boton--texto"
+                type="button"
+            >
+                Tema oscuro
+            </button>
+        </nav>
+
+        <a href="/" class="marca">Fertech</a>
+
+        <h1>Revisa y confirma tu compra</h1>
+
+        <p class="checkout__aviso">
+            Pago de prueba · sin cobros reales
+        </p>
+
+        <p
+            id="estado-checkout"
+            class="texto-secundario texto-pequeno"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+        ></p>
+
+        <button
+            id="reintentar-checkout"
+            class="boton boton--secundario"
+            type="button"
+            hidden
+        >
+            Volver a cargar
+        </button>
+
+        <div class="checkout__columnas">
+            <section
+                class="checkout__panel"
+                aria-labelledby="titulo-resumen"
+            >
+                <h2 id="titulo-resumen">Resumen del pedido</h2>
+
+                <ul
+                    id="resumen-productos"
+                    class="checkout__productos"
+                ></ul>
+
+                <p class="checkout__total">
+                    Total estimado ·
+                    <span id="total-checkout">Por calcular</span>
+                </p>
+            </section>
+
+            <section
+                class="checkout__panel"
+                aria-labelledby="titulo-pago"
+            >
+                <h2 id="titulo-pago">Método de pago</h2>
+
+                <p>Tarjeta de prueba ···· 4242</p>
+
+                <p class="texto-secundario">
+                    Se validarán las existencias y se procesará
+                    el pago simulado.
+                </p>
+
+                <button
+                    id="confirmar-compra"
+                    class="boton boton--principal boton--ancho"
+                    type="button"
+                    disabled
+                >
+                    Confirmar compra
+                </button>
+
+                <p class="texto-secundario texto-pequeno">
+                    El resultado aparecerá en el detalle del pedido.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <template id="plantilla-resumen-producto">
+        <li class="checkout__producto">
+            <h3 class="checkout__producto-nombre"></h3>
+            <p class="checkout__producto-detalle texto-secundario"></p>
+        </li>
+    </template>
+</body>
+</html>

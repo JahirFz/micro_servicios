@@ -1,0 +1,43 @@
+.acceso {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--espacio-24);
+    width: 100%;
+    max-width: 30rem;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin-inline: auto;
+    padding: var(--espacio-16);
+}
+
+.acceso__navegacion {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espacio-8);
+}
+
+.acceso__volver {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--altura-control);
+    font-size: var(--texto-pequeno);
+}
+
+.acceso__encabezado {
+    display: grid;
+    gap: var(--espacio-8);
+}
+
+.acceso__formulario {
+    display: grid;
+    gap: 1.25rem;
+}
+
+@media (min-width: 48rem) {
+    .acceso {
+        padding: var(--espacio-32) var(--espacio-24);
+    }
+}

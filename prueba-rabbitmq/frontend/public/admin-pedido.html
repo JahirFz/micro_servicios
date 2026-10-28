@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Detalle administrativo | Fertech</title>
+
+    <script src="/js/tema.js"></script>
+
+    <link rel="stylesheet" href="/css/fuentes.css">
+    <link rel="stylesheet" href="/css/tokens.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/componentes.css">
+    <link rel="stylesheet" href="/css/pantallas/pedido.css">
+
+    <script type="module" src="/js/paginas/admin-pedido.js"></script>
+</head>
+
+<body>
+    <main class="pagina-pedido">
+        <a href="/admin.html" class="pedido__volver">
+            ← Volver a administración
+        </a>
+
+        <button
+            id="cambiar-tema"
+            class="boton boton--texto"
+            type="button"
+        >
+            Tema oscuro
+        </button>
+
+        <header class="pedido__encabezado">
+            <a href="/" class="marca">Fertech</a>
+            <h1 id="titulo-pedido">Detalle administrativo</h1>
+        </header>
+
+        <p
+            id="estado-consulta"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+        ></p>
+
+        <div id="detalle-admin" class="pedido__contenido" hidden>
+            <section class="pedido__estado" aria-labelledby="titulo-datos">
+                <h2 id="titulo-datos">Datos del pedido</h2>
+                <dl id="datos-pedido"></dl>
+            </section>
+
+            <section class="pedido__resumen" aria-labelledby="titulo-productos">
+                <h2 id="titulo-productos">Productos</h2>
+                <ul id="productos-pedido" class="pedido__productos"></ul>
+
+                <p class="pedido__total">
+                    <span>Total</span>
+                    <strong id="total-pedido"></strong>
+                </p>
+            </section>
+        </div>
+
+        <button
+            id="actualizar-pedido"
+            class="boton boton--secundario"
+            type="button"
+            hidden
+        >
+            Actualizar pedido
+        </button>
+    </main>
+</body>
+</html>

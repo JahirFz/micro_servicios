@@ -1,0 +1,127 @@
+.tienda {
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding: var(--espacio-16);
+}
+
+.tienda__cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--espacio-16);
+    margin-bottom: var(--espacio-24);
+}
+
+.catalogo {
+    display: grid;
+    gap: var(--espacio-24);
+}
+
+.catalogo__presentacion {
+    display: grid;
+    gap: var(--espacio-8);
+}
+
+.catalogo__navegacion {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--espacio-8);
+}
+
+.catalogo__productos {
+    display: grid;
+    gap: var(--espacio-24);
+}
+
+.catalogo__productos h2 {
+    font-size: 1.375rem;
+    font-weight: var(--peso-bold);
+    line-height: 1.3;
+}
+
+.rejilla-productos {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--espacio-24);
+    padding: 0;
+    list-style: none;
+}
+
+.tarjeta-producto {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--espacio-16);
+    min-width: 0;
+    padding: var(--espacio-16);
+    border: 1px solid var(--color-divisor);
+    border-radius: var(--radio-tarjeta);
+    background: var(--color-elevado);
+}
+
+.tarjeta-producto__ilustracion {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 8.5rem;
+    padding: var(--espacio-24);
+    border-radius: var(--radio-tarjeta);
+    background: var(--color-superficie);
+}
+
+.tarjeta-producto__nombre {
+    font-size: 1.125rem;
+    font-weight: var(--peso-semibold);
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.tarjeta-producto__precio {
+    font-size: var(--texto-normal);
+}
+
+.tarjeta-producto__stock {
+    font-size: var(--texto-pequeno);
+}
+
+.tarjeta-producto > .boton {
+    margin-top: auto;
+}
+
+.salto-contenido {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 10;
+    padding: var(--espacio-12);
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    transform: translateY(-200%);
+}
+
+.salto-contenido:focus {
+    transform: translateY(0);
+}
+
+@media (min-width: 48rem) {
+    .tienda {
+        padding: var(--espacio-24);
+    }
+
+    .rejilla-productos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 75rem) {
+    .tienda {
+        padding: 7.5rem;
+    }
+
+    .rejilla-productos {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}

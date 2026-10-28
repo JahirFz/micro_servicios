@@ -1,0 +1,206 @@
+:root {
+    color-scheme: light;
+    --fondo: #f8fafc;
+    --superficie: #ffffff;
+    --texto: #0f172a;
+    --secundario: #475569;
+    --borde: #64748b;
+    --accion: #1d4ed8;
+    --accion-hover: #1e40af;
+    --error: #b91c1c;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --fondo: #0f172a;
+        --superficie: #1e293b;
+        --texto: #f8fafc;
+        --secundario: #cbd5e1;
+        --borde: #94a3b8;
+        --accion: #2563eb;
+        --accion-hover: #1d4ed8;
+        --error: #fca5a5;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.acceso {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: 1.25rem;
+}
+
+.tarjeta {
+    width: 100%;
+    max-width: 28rem;
+    padding: 1.5rem;
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 1rem;
+}
+
+.marca {
+    color: var(--texto);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+}
+
+h1 {
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.75rem;
+    line-height: 1.25;
+}
+
+.descripcion {
+    margin: 0 0 1.5rem;
+    color: var(--secundario);
+}
+
+.campo {
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+label {
+    font-weight: 600;
+}
+
+input,
+button {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font: inherit;
+}
+
+input {
+    border: 1px solid var(--borde);
+    background: var(--superficie);
+    color: var(--texto);
+}
+
+button {
+    border: 0;
+    background: var(--accion);
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+    background: var(--accion-hover);
+}
+
+button:disabled {
+    cursor: wait;
+}
+
+:focus-visible {
+    outline: 3px solid var(--texto);
+    outline-offset: 3px;
+}
+
+.mensaje {
+    margin: 1rem 0 0;
+    overflow-wrap: anywhere;
+}
+
+.mensaje:empty {
+    margin: 0;
+}
+
+.mensaje[data-error="true"] {
+    color: var(--error);
+}
+
+@media (min-width: 40rem) {
+    .tarjeta {
+        padding: 2rem;
+    }
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.catalogo {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 1.25rem;
+}
+
+.cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--borde);
+}
+
+.cabecera p {
+    margin: 0;
+    color: var(--secundario);
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 16rem), 1fr)
+    );
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+    padding: 0;
+    list-style: none;
+}
+
+.producto {
+    padding: 1.25rem;
+    border: 1px solid var(--borde);
+    border-radius: 0.75rem;
+    background: var(--superficie);
+    overflow-wrap: anywhere;
+}
+
+.producto h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+}
+
+.producto p {
+    margin: 0.5rem 0;
+}
+
+.producto-precio {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.producto-stock {
+    color: var(--secundario);
+}
+
+#reintentar-catalogo {
+    max-width: 15rem;
+}

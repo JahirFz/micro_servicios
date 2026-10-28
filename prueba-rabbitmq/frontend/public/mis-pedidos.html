@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Mis pedidos | Fertech</title>
+
+    <link rel="stylesheet" href="/css/tokens.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/componentes.css">
+    <link rel="stylesheet" href="/css/pantallas/mis-pedidos.css">
+
+    <script type="module" src="/js/paginas/mis-pedidos.js"></script>
+    <script src="/js/tema.js"></script>
+    <link rel="stylesheet" href="/css/fuentes.css">
+</head>
+
+    <button
+        id="cerrar-sesion"
+        class="boton boton--texto"
+        type="button"
+        hidden
+    >
+        Cerrar sesión
+    </button>
+
+<body>
+    <main class="historial">
+        <a href="/" class="historial__volver">
+            ← Seguir comprando
+        </a>
+
+        <header class="historial__encabezado">
+            <a href="/" class="marca">Fertech</a>
+            <h1>Mis pedidos</h1>
+            <p class="texto-secundario">
+                Consulta el estado y los detalles de tus compras.
+            </p>
+        </header>
+
+        <p
+            id="estado-historial"
+            class="texto-secundario texto-pequeno"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+        ></p>
+
+        <ul id="lista-pedidos" class="historial__lista"></ul>
+
+        <button
+            id="cargar-pedidos"
+            class="boton boton--secundario"
+            type="button"
+            hidden
+        >
+            Cargar más pedidos
+        </button>
+
+        <section
+            id="historial-vacio"
+            class="estado-vacio"
+            aria-labelledby="titulo-historial-vacio"
+            hidden
+        >
+            <h2 id="titulo-historial-vacio">Todavía no tienes pedidos</h2>
+
+            <p class="texto-secundario">
+                Cuando realices una compra, podrás consultar aquí
+                su estado y sus detalles.
+            </p>
+
+            <a href="/" class="boton boton--principal">
+                Explorar productos
+            </a>
+        </section>
+    </main>
+</body>
+</html>

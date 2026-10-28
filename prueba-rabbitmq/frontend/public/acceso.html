@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Iniciar sesión | Fertech</title>
+
+    <link rel="stylesheet" href="/css/tokens.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/componentes.css">
+    <link rel="stylesheet" href="/css/pantallas/acceso.css">
+    <script type="module" src="/js/paginas/acceso.js"></script>
+    <script src="/js/tema.js"></script>
+    <link rel="stylesheet" href="/css/fuentes.css">
+</head>
+
+<body>
+    <main class="acceso">
+        <nav class="acceso__navegacion" aria-label="Navegación de acceso">
+            <a href="/" class="acceso__volver">
+                Volver a la tienda
+            </a>
+
+            <button
+                id="cambiar-tema"
+                class="boton boton--texto"
+                type="button"
+            >
+                Tema oscuro
+            </button>
+        </nav>
+
+        <a class="marca" href="/">Fertech</a>
+
+        <header class="acceso__encabezado">
+            <h1>Inicia sesión</h1>
+
+            <p class="texto-secundario">
+                Accede para continuar con tu compra.
+            </p>
+
+            <p class="texto-secundario texto-pequeno">
+                * Campos obligatorios
+            </p>
+        </header>
+
+        <form id="formulario-acceso" class="acceso__formulario">
+            <div class="campo">
+                <label class="campo__etiqueta" for="correo">
+                    Correo electrónico *
+                </label>
+
+                <input
+                    class="campo__entrada"
+                    id="correo"
+                    name="correo"
+                    type="email"
+                    autocomplete="username"
+                    placeholder="nombre@correo.com"
+                    maxlength="254"
+                    aria-describedby="ayuda-correo error-correo"
+                    required
+                >
+
+                <p
+                    id="ayuda-correo"
+                    class="campo__ayuda"
+                >
+                    Usa el correo de tu cuenta.
+                </p>
+
+                <p
+                    id="error-correo"
+                    class="campo__error"
+                    hidden
+                ></p>
+            </div>
+
+            <div class="campo">
+                <label class="campo__etiqueta" for="password">
+                    Contraseña *
+                </label>
+
+                <div class="control-password">
+                    <input
+                        class="campo__entrada"
+                        id="password"
+                        name="password"
+                        type="password"
+                        autocomplete="current-password"
+                        placeholder="Escribe tu contraseña"
+                        aria-describedby="ayuda-password error-password"
+                        required
+                    >
+
+                    <button
+                        id="mostrar-password"
+                        class="control-password__boton"
+                        type="button"
+                        aria-label="Mostrar contraseña"
+                        aria-controls="password"
+                        aria-pressed="false"
+                    >
+                        <img
+                            src="/assets/iconos/mostrar-password.svg"
+                            width="20"
+                            height="20"
+                            alt=""
+                        >
+                    </button>
+                </div>
+
+                <p id="ayuda-password" class="campo__ayuda">
+                    Puedes pegar tu contraseña.
+                </p>
+
+                <p
+                    id="error-password"
+                    class="campo__error"
+                    hidden
+                ></p>
+            </div>
+
+            <p
+                id="error-acceso"
+                class="mensaje"
+                role="alert"
+                hidden
+            ></p>
+
+            <button
+                id="iniciar-sesion"
+                class="boton boton--principal boton--ancho"
+                type="submit"
+            >
+                Iniciar sesión
+            </button>
+        </form>
+
+        <p
+            id="estado-acceso"
+            class="texto-secundario texto-pequeno"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+        >
+            Tus datos se validarán al enviar el formulario.
+        </p>
+    </main>
+</body>
+</html>

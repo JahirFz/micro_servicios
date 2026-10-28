@@ -1,0 +1,16 @@
+# Dependencias
+node_modules/
+
+# Configuración privada
+.env
+.env.*
+!.env.example
+
+# Registros y temporales
+*.log
+npm-debug.log*
+Thumbs.db
+.DS_Store
+
+# Operaciones locales del banco simulado
+simulador_banco/datos/

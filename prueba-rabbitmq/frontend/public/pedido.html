@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Detalle del pedido | Fertech</title>
+
+    <link rel="stylesheet" href="/css/tokens.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/componentes.css">
+    <link rel="stylesheet" href="/css/pantallas/pedido.css">
+
+    <script type="module" src="/js/paginas/pedido.js"></script>
+    <script src="/js/tema.js"></script>
+    <link rel="stylesheet" href="/css/fuentes.css">
+</head>
+
+<body>
+    <main class="pagina-pedido">
+        <a href="/mis-pedidos.html" class="pedido__volver">
+            ← Mis pedidos
+        </a>
+
+        <header class="pedido__encabezado">
+            <a href="/" class="marca">Fertech</a>
+            <h1 id="titulo-pedido">Detalle del pedido</h1>
+            <p id="fecha-pedido" class="texto-secundario texto-pequeno"></p>
+        </header>
+
+        <p
+            id="mensaje-consulta"
+            class="texto-secundario texto-pequeno"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+        >
+            Consultando pedido…
+        </p>
+
+        <button
+            id="reintentar-pedido"
+            class="boton boton--secundario"
+            type="button"
+            hidden
+        >
+            Volver a consultar
+        </button>
+
+        <div id="contenido-pedido" class="pedido__contenido" hidden>
+            <section
+                class="pedido__estado"
+                aria-labelledby="titulo-estado"
+                aria-live="polite"
+                aria-atomic="true"
+            >
+                <p id="etiqueta-estado" class="pedido__etiqueta"></p>
+                <h2 id="titulo-estado"></h2>
+                <p id="descripcion-estado" class="texto-secundario"></p>
+            </section>
+
+            <section class="pedido__resumen" aria-labelledby="titulo-resumen">
+                <h2 id="titulo-resumen">Resumen del pedido</h2>
+
+                <ul id="productos-pedido" class="pedido__productos"></ul>
+
+                <p class="pedido__total">
+                    <span>Total</span>
+                    <strong id="total-pedido"></strong>
+                </p>
+            </section>
+
+            <p id="nota-pedido" class="texto-secundario texto-pequeno"></p>
+
+            <a
+                href="/"
+                id="accion-pedido"
+                class="boton boton--principal boton--ancho"
+            >
+                Seguir comprando
+            </a>
+        </div>
+    </main>
+</body>
+</html>

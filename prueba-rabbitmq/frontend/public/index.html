@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Catálogo | Fertech</title>
+
+    <link rel="stylesheet" href="/css/tokens.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/componentes.css">
+    <link rel="stylesheet" href="/css/pantallas/catalogo.css">
+    <script type="module" src="/js/paginas/catalogo.js"></script>
+    <script src="/js/tema.js"></script>
+    <link rel="stylesheet" href="/css/fuentes.css">
+</head>
+
+<body>
+    <a class="salto-contenido" href="#contenido">
+        Saltar al contenido
+    </a>
+
+    <div class="tienda">
+        <header class="tienda__cabecera">
+            <a href="/" class="marca" aria-label="Fertech, inicio">
+                Fertech
+            </a>
+
+            <button
+                id="cambiar-tema"
+                type="button"
+                class="boton boton--texto"
+            >
+                Tema oscuro
+            </button>
+        </header>
+
+        <main id="contenido" class="catalogo">
+            <section class="catalogo__presentacion">
+                <h1>Tecnología para tu día a día</h1>
+
+                <p class="texto-secundario">
+                    Explora los productos y compra con pagos de prueba.
+                </p>
+            </section>
+
+            <nav class="catalogo__navegacion" aria-label="Tu cuenta">
+                <a href="/acceso.html" class="boton boton--texto">
+                    Iniciar sesión
+                </a>
+
+                <a href="/carrito.html" class="boton boton--texto">
+                    Ver carrito
+                </a>
+
+                <a href="/mis-pedidos.html" class="boton boton--texto">
+                    Mis pedidos
+                </a>
+
+                <a
+                    id="enlace-admin"
+                    href="/admin.html"
+                    class="boton boton--texto"
+                    hidden
+                >
+                    Administración
+                </a>
+
+                <button
+                    id="cerrar-sesion"
+                    class="boton boton--texto"
+                    type="button"
+                    hidden
+                >
+                    Cerrar sesión
+                </button>
+
+                <span id="saludo" class="texto-pequeno" hidden></span>
+            </nav>
+
+            <p
+                id="estado-carrito"
+                class="texto-secundario texto-pequeno"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+            ></p>
+
+            <section
+                class="catalogo__productos"
+                aria-labelledby="titulo-productos"
+            >
+                <h2 id="titulo-productos">Productos disponibles</h2>
+
+                <p
+                    id="estado-catalogo"
+                    class="texto-secundario texto-pequeno"
+                    role="status"
+                    aria-live="polite"
+                    aria-atomic="true"
+                ></p>
+
+                <button
+                    id="reintentar-catalogo"
+                    type="button"
+                    class="boton boton--secundario"
+                    hidden
+                >
+                    Volver a cargar
+                </button>
+
+                <ul id="lista-productos" class="rejilla-productos"></ul>
+
+                <noscript>
+                    Necesitas activar JavaScript para consultar
+                    los productos y realizar compras.
+                </noscript>
+            </section>
+
+            <p class="texto-secundario texto-pequeno">
+                Tienda de demostración · pagos simulados, sin cobros reales.
+            </p>
+        </main>
+    </div>
+
+    <template id="plantilla-producto">
+        <li class="tarjeta-producto">
+            <div class="tarjeta-producto__ilustracion" aria-hidden="true">
+                <img
+                    src="/assets/iconos/audifonos.svg"
+                    width="56"
+                    height="56"
+                    alt=""
+                >
+            </div>
+
+            <h3 class="tarjeta-producto__nombre"></h3>
+
+            <p class="tarjeta-producto__precio"></p>
+
+            <p class="tarjeta-producto__stock texto-secundario"></p>
+
+            <button
+                type="button"
+                class="boton boton--principal boton--ancho"
+            >
+                Agregar al carrito
+            </button>
+        </li>
+    </template>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Administración | Fertech</title>
+
+    <script src="/js/tema.js"></script>
+
+    <link rel="stylesheet" href="/css/fuentes.css">
+    <link rel="stylesheet" href="/css/tokens.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/componentes.css">
+    <link rel="stylesheet" href="/css/pantallas/admin.css">
+
+    <script type="module" src="/js/paginas/admin.js"></script>
+</head>
+
+<body>
+    <main class="admin">
+        <header class="admin__cabecera">
+            <a href="/" class="marca">Fertech</a>
+
+            <nav aria-label="Opciones de administración">
+                <button
+                    id="cambiar-tema"
+                    class="boton boton--texto"
+                    type="button"
+                >
+                    Tema oscuro
+                </button>
+
+                <button
+                    id="cerrar-sesion"
+                    class="boton boton--texto"
+                    type="button"
+                    hidden
+                >
+                    Cerrar sesión
+                </button>
+            </nav>
+        </header>
+
+        <h1>Administración</h1>
+
+        <p id="estado-admin" role="status" aria-live="polite">
+            Comprobando acceso…
+        </p>
+
+        <div id="contenido-admin" class="admin__columnas" hidden>
+            <section class="admin__resumen" aria-labelledby="titulo-resumen">
+                <h2 id="titulo-resumen">Resumen</h2>
+
+                <div class="admin__indicador">
+                    <h3>Pedidos pendientes</h3>
+
+                    <p
+                        id="cantidad-pendientes"
+                        class="admin__cantidad"
+                        aria-live="polite"
+                    >
+                        Consultando…
+                    </p>
+                </div>
+
+                <div class="admin__indicador">
+                    <h3>Productos con poco stock</h3>
+
+                    <p
+                        id="cantidad-poco-stock"
+                        class="admin__cantidad"
+                        aria-live="polite"
+                    >
+                        Consultando…
+                    </p>
+
+                    <p class="texto-secundario texto-pequeno">
+                        Productos activos con 5 unidades disponibles o menos.
+                    </p>
+                </div>
+
+                <button
+                    id="actualizar-resumen"
+                    class="boton boton--secundario"
+                    type="button"
+                >
+                    Actualizar resumen
+                </button>
+
+                <p
+                    id="estado-resumen"
+                    class="texto-secundario texto-pequeno"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+            </section>
+
+            <section class="admin__seccion" aria-labelledby="titulo-pedidos">
+                <h2 id="titulo-pedidos">Pedidos recientes</h2>
+
+                <p
+                    id="estado-pedidos"
+                    class="texto-secundario texto-pequeno"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+                <ul id="lista-pedidos" class="admin__lista"></ul>
+
+                <button
+                    id="mas-pedidos"
+                    class="boton boton--secundario"
+                    type="button"
+                >
+                    Cargar pedidos
+                </button>
+            </section>
+
+            <section class="admin__seccion" aria-labelledby="titulo-inventario">
+                <h2 id="titulo-inventario">Inventario</h2>
+
+                <p
+                    id="estado-productos"
+                    class="texto-secundario texto-pequeno"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+                <ul id="lista-productos" class="admin__lista"></ul>
+
+                <button
+                    id="mas-productos"
+                    class="boton boton--secundario"
+                    type="button"
+                >
+                    Cargar productos
+                </button>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

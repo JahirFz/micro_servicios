@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tu carrito | Fertech</title>
+
+    <link rel="stylesheet" href="/css/tokens.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/componentes.css">
+    <link rel="stylesheet" href="/css/pantallas/carrito.css">
+    <script type="module" src="/js/paginas/carrito.js"></script>
+    <script src="/js/tema.js"></script>
+    <link rel="stylesheet" href="/css/fuentes.css">
+</head>
+
+
+
+<body>
+    <main class="pagina-carrito">
+        <button
+            id="cambiar-tema"
+            class="boton boton--texto"
+            type="button"
+        >
+
+        <header class="carrito__encabezado">
+            <a class="marca" href="/">Fertech</a>
+            <p class="texto-secundario">
+                Revisa tus productos antes de continuar.
+            </p>
+        </header>
+
+        <h1 id="titulo-carrito" tabindex="-1">Tu carrito</h1>
+
+        <p
+            id="estado-carrito"
+            class="texto-secundario texto-pequeno"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+        ></p>
+
+        <button
+            id="reintentar-carrito"
+            class="boton boton--secundario"
+            type="button"
+            hidden
+        >
+            Volver a cargar
+        </button>
+
+        <button
+            id="vaciar-carrito"
+            class="carrito__accion"
+            type="button"
+            hidden
+        >
+            Vaciar carrito
+        </button>
+
+        <ul id="lista-carrito" class="carrito__lista"></ul>
+
+        <section
+            id="carrito-vacio"
+            class="estado-vacio"
+            aria-labelledby="titulo-carrito-vacio"
+            hidden
+        >
+            <h2 id="titulo-carrito-vacio">Tu carrito está vacío</h2>
+
+            <p class="texto-secundario">
+                Explora los productos y agrega los que quieras comprar.
+            </p>
+
+            <a href="/" class="boton boton--principal">
+                Explorar productos
+            </a>
+        </section>
+
+        <section
+            id="resumen-carrito"
+            class="carrito__resumen"
+            aria-label="Resumen del carrito"
+            hidden
+        >
+            <div class="carrito__total">
+                <span>Total estimado</span>
+                <strong id="total-carrito"></strong>
+            </div>
+
+            <p class="texto-secundario texto-pequeno">
+                Precios en MXN. Disponibilidad y total se validan
+                al confirmar la compra.
+            </p>
+        </section>
+
+        <button
+            id="continuar-compra"
+            class="boton boton--principal boton--ancho"
+            type="button"
+            disabled
+        >
+            Continuar compra
+        </button>
+
+        <p class="texto-secundario texto-pequeno">
+            Si no has iniciado sesión, te pediremos acceder.
+        </p>
+    </main>
+
+    <template id="plantilla-linea-carrito">
+        <li class="linea-carrito">
+            <h2 class="linea-carrito__nombre"></h2>
+
+            <div class="linea-carrito__informacion">
+                <p class="linea-carrito__precio"></p>
+                <p class="linea-carrito__stock texto-secundario"></p>
+            </div>
+
+            <div class="linea-carrito__acciones">
+                <div class="selector-cantidad">
+                    <button
+                        class="selector-cantidad__menos"
+                        type="button"
+                    >
+                        −
+                    </button>
+
+                    <span class="selector-cantidad__valor"></span>
+
+                    <button
+                        class="selector-cantidad__mas"
+                        type="button"
+                    >
+                        +
+                    </button>
+                </div>
+
+                <button
+                    class="linea-carrito__eliminar carrito__accion"
+                    type="button"
+                >
+                    Eliminar
+                </button>
+            </div>
+
+            <p
+                class="linea-carrito__aviso texto-pequeno"
+                hidden
+            ></p>
+        </li>
+    </template>
+</body>
+</html>

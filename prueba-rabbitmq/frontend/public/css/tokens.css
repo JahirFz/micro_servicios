@@ -1,0 +1,53 @@
+:root {
+    color-scheme: light;
+
+    /* Colores del diseño de Figma */
+    --color-fondo: #ffffff;
+    --color-texto: #111827;
+    --color-secundario: #4b5563;
+    --color-borde: #6b7280;
+    --color-accion: #111827;
+    --color-sobre-accion: #ffffff;
+
+    /* Tipografía */
+    --fuente-principal: "Inter", system-ui, sans-serif;
+
+    --texto-pequeno: 0.875rem;
+    --texto-normal: 1rem;
+    --texto-titulo: 1.75rem;
+
+    --peso-normal: 400;
+    --peso-semibold: 600;
+    --peso-bold: 700;
+
+    /* Espaciado */
+    --espacio-8: 0.5rem;
+    --espacio-12: 0.75rem;
+    --espacio-16: 1rem;
+    --espacio-24: 1.5rem;
+    --espacio-32: 2rem;
+
+    /* Controles */
+    --radio-control: 0.5rem;
+    --altura-control: 3rem;
+
+    --color-superficie: #f9fafb;
+    --color-elevado: #ffffff;
+    --color-divisor: #e5e7eb;
+    --radio-tarjeta: 0.75rem;
+}
+
+:root[data-tema="oscuro"] {
+    color-scheme: dark;
+
+    --color-fondo: #111827;
+    --color-texto: #f9fafb;
+    --color-secundario: #d1d5db;
+    --color-borde: #9ca3af;
+    --color-accion: #f9fafb;
+    --color-sobre-accion: #111827;
+
+    --color-superficie: #1f2937;
+    --color-elevado: #111827;
+    --color-divisor: #6b7280;
+}
