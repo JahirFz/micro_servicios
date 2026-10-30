@@ -1,0 +1,438 @@
+/*
+ * Íconos de la interfaz.
+ * Se dibujan con ::before y una máscara SVG para no alterar el HTML
+ * ni los textos que el JavaScript reemplaza. Cada elemento define
+ * --icono y el pseudoelemento toma el color del texto.
+ */
+
+.marca::before,
+#cambiar-tema::before,
+.catalogo__navegacion .boton::before,
+#cerrar-sesion::before,
+#saludo::before,
+.catalogo > #estado-carrito::before,
+.tarjeta-producto > .boton::before,
+.acceso__volver::before,
+#iniciar-sesion::before,
+.campo__error:not(:empty)::before,
+.mensaje::before,
+#reintentar-catalogo::before,
+#reintentar-carrito::before,
+#reintentar-checkout::before,
+#reintentar-pedido::before,
+#actualizar-resumen::before,
+#actualizar-pedido::before,
+#vaciar-carrito::before,
+.linea-carrito__eliminar::before,
+.linea-carrito__aviso::before,
+#continuar-compra::before,
+#confirmar-compra::before,
+#accion-pedido::before,
+.checkout__aviso::before,
+.checkout__panel h2::before,
+.pedido__resumen h2::before,
+.pedido__estado h2#titulo-datos::before,
+.catalogo__productos h2::before,
+.admin > h1::before,
+.admin__resumen h2::before,
+.admin__seccion h2::before,
+#cargar-pedidos::before,
+#mas-pedidos::before,
+#mas-productos::before,
+.pedido-historial .boton::before,
+.admin__tarjeta .boton::before {
+    content: "";
+    flex-shrink: 0;
+    width: var(--tamano-icono, 1.125rem);
+    height: var(--tamano-icono, 1.125rem);
+    background: currentColor;
+    -webkit-mask: var(--icono) center / contain no-repeat;
+    mask: var(--icono) center / contain no-repeat;
+}
+
+/* Marca */
+.marca {
+    --icono: url("/assets/iconos/ui/rayo.svg");
+    --tamano-icono: 1em;
+}
+
+.marca::before {
+    background: var(--degradado-accion);
+}
+
+/* Tema */
+#cambiar-tema {
+    --icono: url("/assets/iconos/ui/luna.svg");
+}
+
+:root[data-tema="oscuro"] #cambiar-tema {
+    --icono: url("/assets/iconos/ui/sol.svg");
+}
+
+#cambiar-tema::before {
+    transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+#cambiar-tema:hover::before {
+    transform: rotate(-20deg) scale(1.1);
+}
+
+/* Navegación de la cuenta */
+.catalogo__navegacion a[href="/acceso.html"] {
+    --icono: url("/assets/iconos/ui/entrar.svg");
+}
+
+.catalogo__navegacion a[href="/carrito.html"],
+.catalogo > #estado-carrito {
+    --icono: url("/assets/iconos/ui/carrito.svg");
+}
+
+.catalogo__navegacion a[href="/mis-pedidos.html"] {
+    --icono: url("/assets/iconos/ui/paquete.svg");
+}
+
+#enlace-admin {
+    --icono: url("/assets/iconos/ui/panel.svg");
+}
+
+#cerrar-sesion {
+    --icono: url("/assets/iconos/ui/salir.svg");
+}
+
+#saludo {
+    --icono: url("/assets/iconos/ui/usuario.svg");
+}
+
+/* Acciones */
+.tarjeta-producto > .boton {
+    --icono: url("/assets/iconos/ui/carrito-mas.svg");
+}
+
+.acceso__volver {
+    --icono: url("/assets/iconos/ui/flecha-izquierda.svg");
+}
+
+#iniciar-sesion {
+    --icono: url("/assets/iconos/ui/entrar.svg");
+}
+
+.campo__error,
+.mensaje {
+    --icono: url("/assets/iconos/ui/alerta.svg");
+    --tamano-icono: 1rem;
+}
+
+.mensaje::before {
+    margin-top: 0.125rem;
+}
+
+#reintentar-catalogo,
+#reintentar-carrito,
+#reintentar-checkout,
+#reintentar-pedido,
+#actualizar-resumen,
+#actualizar-pedido {
+    --icono: url("/assets/iconos/ui/recargar.svg");
+}
+
+#reintentar-catalogo:hover::before,
+#reintentar-carrito:hover::before,
+#reintentar-checkout:hover::before,
+#reintentar-pedido:hover::before,
+#actualizar-resumen:hover::before,
+#actualizar-pedido:hover::before {
+    transform: rotate(180deg);
+}
+
+#reintentar-catalogo::before,
+#reintentar-carrito::before,
+#reintentar-checkout::before,
+#reintentar-pedido::before,
+#actualizar-resumen::before,
+#actualizar-pedido::before {
+    transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+#vaciar-carrito,
+.linea-carrito__eliminar {
+    --icono: url("/assets/iconos/ui/basura.svg");
+}
+
+.linea-carrito__aviso {
+    --icono: url("/assets/iconos/ui/aviso.svg");
+    --tamano-icono: 1rem;
+}
+
+.linea-carrito__aviso::before {
+    margin-top: 0.125rem;
+}
+
+/* Las flechas de avance van después del texto */
+#continuar-compra,
+.pedido-historial .boton,
+.admin__tarjeta .boton {
+    --icono: url("/assets/iconos/ui/flecha-derecha.svg");
+}
+
+#continuar-compra::before,
+.pedido-historial .boton::before,
+.admin__tarjeta .boton::before {
+    order: 1;
+    transition: transform var(--transicion);
+}
+
+#continuar-compra:hover:not(:disabled)::before,
+.pedido-historial .boton:hover::before,
+.admin__tarjeta .boton:hover::before {
+    transform: translateX(3px);
+}
+
+#confirmar-compra {
+    --icono: url("/assets/iconos/ui/candado.svg");
+}
+
+#accion-pedido {
+    --icono: url("/assets/iconos/ui/carrito.svg");
+}
+
+#cargar-pedidos,
+#mas-pedidos,
+#mas-productos {
+    --icono: url("/assets/iconos/ui/chevron-abajo.svg");
+}
+
+/* Encabezados de sección */
+.checkout__aviso {
+    --icono: url("/assets/iconos/ui/escudo.svg");
+}
+
+.checkout__panel h2,
+.pedido__resumen h2,
+.pedido__estado h2#titulo-datos,
+.catalogo__productos h2,
+.admin > h1,
+.admin__resumen h2,
+.admin__seccion h2 {
+    --tamano-icono: 1.25em;
+}
+
+.checkout__panel h2::before,
+.pedido__resumen h2::before,
+.pedido__estado h2#titulo-datos::before,
+.catalogo__productos h2::before,
+.admin > h1::before,
+.admin__resumen h2::before,
+.admin__seccion h2::before {
+    background: var(--color-accion);
+}
+
+#titulo-resumen {
+    --icono: url("/assets/iconos/ui/recibo.svg");
+}
+
+#titulo-pago {
+    --icono: url("/assets/iconos/ui/tarjeta.svg");
+}
+
+#titulo-productos,
+#titulo-inventario {
+    --icono: url("/assets/iconos/ui/caja.svg");
+}
+
+#titulo-datos,
+#titulo-pedidos {
+    --icono: url("/assets/iconos/ui/paquete.svg");
+}
+
+.admin > h1 {
+    --icono: url("/assets/iconos/ui/escudo.svg");
+}
+
+.admin__resumen #titulo-resumen {
+    --icono: url("/assets/iconos/ui/panel.svg");
+}
+
+.pedido__estado h2#titulo-datos {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-8);
+}
+
+/* Ilustraciones grandes */
+.estado-vacio::before,
+.tarjeta-producto__ilustracion::before,
+.linea-carrito::after,
+.admin__indicador::after,
+.pedido__estado:has(#etiqueta-estado)::before {
+    content: "";
+    background: currentColor;
+    -webkit-mask: var(--icono) center / contain no-repeat;
+    mask: var(--icono) center / contain no-repeat;
+}
+
+.estado-vacio::before {
+    width: 4rem;
+    height: 4rem;
+    color: var(--color-accion);
+}
+
+#carrito-vacio {
+    --icono: url("/assets/iconos/ui/carrito.svg");
+}
+
+#historial-vacio {
+    --icono: url("/assets/iconos/ui/paquete.svg");
+}
+
+/* Producto: el ícono depende de la categoría (js/decoracion.js) */
+.tarjeta-producto,
+.linea-carrito {
+    --icono: url("/assets/iconos/ui/chip.svg");
+}
+
+.tarjeta-producto__ilustracion::before {
+    position: relative;
+    z-index: 1;
+    width: 5.5rem;
+    height: 5.5rem;
+    transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.tarjeta-producto:hover .tarjeta-producto__ilustracion::before {
+    transform: scale(1.1) rotate(-6deg);
+}
+
+/* Sin la clasificación se conserva la imagen original */
+.tarjeta-producto:not([data-categoria]) .tarjeta-producto__ilustracion::before {
+    display: none;
+}
+
+.linea-carrito::after {
+    position: absolute;
+    top: calc(var(--espacio-16) + 0.875rem);
+    left: calc(var(--espacio-16) + 0.875rem);
+    width: 1.75rem;
+    height: 1.75rem;
+    color: hsl(var(--tono) 55% 42%);
+    pointer-events: none;
+}
+
+:root[data-tema="oscuro"] .linea-carrito::after {
+    color: hsl(var(--tono) 85% 78%);
+}
+
+[data-categoria="audifonos"] {
+    --icono: url("/assets/iconos/ui/audifonos.svg");
+    --tono: 262;
+}
+
+[data-categoria="teclado"] {
+    --icono: url("/assets/iconos/ui/teclado.svg");
+    --tono: 220;
+}
+
+[data-categoria="mouse"] {
+    --icono: url("/assets/iconos/ui/mouse.svg");
+    --tono: 190;
+}
+
+[data-categoria="laptop"] {
+    --icono: url("/assets/iconos/ui/laptop.svg");
+    --tono: 245;
+}
+
+[data-categoria="monitor"] {
+    --icono: url("/assets/iconos/ui/monitor.svg");
+    --tono: 205;
+}
+
+[data-categoria="celular"] {
+    --icono: url("/assets/iconos/ui/celular.svg");
+    --tono: 280;
+}
+
+[data-categoria="tableta"] {
+    --icono: url("/assets/iconos/ui/tableta.svg");
+    --tono: 300;
+}
+
+[data-categoria="reloj"] {
+    --icono: url("/assets/iconos/ui/reloj-inteligente.svg");
+    --tono: 330;
+}
+
+[data-categoria="bocina"] {
+    --icono: url("/assets/iconos/ui/bocina.svg");
+    --tono: 20;
+}
+
+[data-categoria="camara"] {
+    --icono: url("/assets/iconos/ui/camara.svg");
+    --tono: 350;
+}
+
+[data-categoria="memoria"] {
+    --icono: url("/assets/iconos/ui/memoria.svg");
+    --tono: 160;
+}
+
+[data-categoria="cable"] {
+    --icono: url("/assets/iconos/ui/cable.svg");
+    --tono: 40;
+}
+
+[data-categoria="consola"] {
+    --icono: url("/assets/iconos/ui/consola.svg");
+    --tono: 140;
+}
+
+[data-categoria="general"] {
+    --icono: url("/assets/iconos/ui/chip.svg");
+    --tono: 235;
+}
+
+/* Indicadores de administración */
+.admin__indicador {
+    --icono: url("/assets/iconos/ui/reloj.svg");
+}
+
+.admin__indicador:nth-of-type(2) {
+    --icono: url("/assets/iconos/ui/aviso.svg");
+}
+
+.admin__indicador::after {
+    position: absolute;
+    top: calc(var(--espacio-24) + 0.75rem);
+    left: calc(var(--espacio-24) + 0.75rem);
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--color-aviso);
+}
+
+.admin__indicador:nth-of-type(2)::after {
+    color: var(--color-peligro);
+}
+
+/* Ícono grande del estado del pedido */
+.pedido__estado:has(#etiqueta-estado) {
+    --icono: url("/assets/iconos/ui/reloj.svg");
+
+    padding-right: 5rem;
+}
+
+.pedido__estado:has(#etiqueta-estado[data-estado="confirmado"]) {
+    --icono: url("/assets/iconos/ui/confirmado.svg");
+}
+
+.pedido__estado:has(#etiqueta-estado[data-estado="cancelado"]) {
+    --icono: url("/assets/iconos/ui/cancelado.svg");
+}
+
+.pedido__estado:has(#etiqueta-estado)::before {
+    position: absolute;
+    top: var(--espacio-24);
+    right: var(--espacio-24);
+    width: 2.75rem;
+    height: 2.75rem;
+    color: var(--color-estado);
+}

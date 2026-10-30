@@ -8,16 +8,21 @@
 
 /* Marca */
 .marca {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    justify-self: start;
     color: var(--color-texto);
     font-size: var(--texto-titulo);
     font-weight: var(--peso-bold);
+    letter-spacing: -0.03em;
     line-height: 1.25;
     text-decoration: none;
 }
 
 /* Botones y enlaces con apariencia de botón */
 .boton {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -31,17 +36,41 @@
     line-height: 1.45;
     text-align: center;
     text-decoration: none;
+    transition:
+        transform var(--transicion),
+        box-shadow var(--transicion),
+        background-color var(--transicion),
+        border-color var(--transicion),
+        color var(--transicion),
+        filter var(--transicion);
+}
+
+.boton:active:not(:disabled) {
+    transform: translateY(0) scale(0.97);
 }
 
 .boton--principal {
-    background: var(--color-accion);
+    background: var(--degradado-accion);
     color: var(--color-sobre-accion);
+    box-shadow: var(--sombra-accion);
+}
+
+.boton--principal:hover:not(:disabled) {
+    filter: brightness(1.08) saturate(1.1);
+    transform: translateY(-1px);
 }
 
 .boton--secundario {
-    border-color: var(--color-borde);
-    background: var(--color-fondo);
+    border-color: var(--color-divisor);
+    background: var(--color-elevado);
     color: var(--color-texto);
+    box-shadow: var(--sombra-1);
+}
+
+.boton--secundario:hover:not(:disabled) {
+    border-color: var(--color-accion);
+    color: var(--color-accion);
+    transform: translateY(-1px);
 }
 
 .boton--texto {
@@ -49,12 +78,19 @@
     color: var(--color-texto);
 }
 
+.boton--texto:hover:not(:disabled) {
+    background: var(--color-superficie);
+    color: var(--color-accion);
+}
+
 .boton--ancho {
     width: 100%;
 }
 
 .boton:disabled {
-    opacity: 0.65;
+    opacity: 0.55;
+    box-shadow: none;
+    filter: grayscale(0.35);
 }
 
 .boton[aria-busy="true"] {
@@ -80,10 +116,23 @@
     padding: var(--espacio-12);
     border: 1px solid var(--color-borde);
     border-radius: var(--radio-control);
-    background: var(--color-fondo);
+    background: var(--color-elevado);
     color: var(--color-texto);
     font-size: var(--texto-normal);
     line-height: 1.5;
+    transition:
+        border-color var(--transicion),
+        box-shadow var(--transicion);
+}
+
+.campo__entrada:hover {
+    border-color: var(--color-accion);
+}
+
+.campo__entrada:focus-visible {
+    outline: none;
+    border-color: var(--color-accion);
+    box-shadow: var(--anillo-foco);
 }
 
 .campo__entrada::placeholder {
@@ -103,11 +152,16 @@
 }
 
 .campo__error {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--color-peligro);
     font-weight: var(--peso-semibold);
 }
 
 .campo__entrada[aria-invalid="true"] {
     border-width: 2px;
+    border-color: var(--color-peligro);
 }
 
 /* Contraseña con control para mostrarla */
@@ -118,7 +172,19 @@
     padding: 0.3125rem 0.75rem;
     border: 1px solid var(--color-borde);
     border-radius: var(--radio-control);
-    background: var(--color-fondo);
+    background: var(--color-elevado);
+    transition:
+        border-color var(--transicion),
+        box-shadow var(--transicion);
+}
+
+.control-password:hover {
+    border-color: var(--color-accion);
+}
+
+.control-password:focus-within {
+    border-color: var(--color-accion);
+    box-shadow: var(--anillo-foco);
 }
 
 .control-password .campo__entrada {
@@ -128,6 +194,7 @@
     border: 0;
     border-radius: 0;
     background: transparent;
+    box-shadow: none;
 }
 
 .control-password__boton {
@@ -143,18 +210,35 @@
     border-radius: var(--radio-control);
     background: transparent;
     color: var(--color-texto);
+    transition: background-color var(--transicion);
+}
+
+.control-password__boton:hover,
+.control-password__boton[aria-pressed="true"] {
+    background: var(--color-superficie);
+}
+
+:root[data-tema="oscuro"] .control-password__boton img {
+    filter: invert(1) brightness(1.4);
 }
 
 .control-password:has(input[aria-invalid="true"]) {
     border-width: 2px;
+    border-color: var(--color-peligro);
 }
 
 /* Mensajes */
 .mensaje {
-    padding: var(--espacio-12);
-    border: 1px solid var(--color-borde);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--espacio-8);
+    padding: var(--espacio-12) var(--espacio-16);
+    border: 1px solid var(--color-peligro);
     border-radius: var(--radio-control);
+    background: var(--color-peligro-fondo);
+    color: var(--color-peligro);
     font-size: var(--texto-pequeno);
+    font-weight: var(--peso-semibold);
     line-height: 1.5;
     overflow-wrap: anywhere;
 }
@@ -183,10 +267,10 @@
     display: grid;
     justify-items: center;
     gap: var(--espacio-16);
-    padding: var(--espacio-32) var(--espacio-24);
-    border: 1px solid var(--color-divisor);
+    padding: 2.5rem var(--espacio-24);
+    border: 1px dashed var(--color-divisor);
     border-radius: var(--radio-tarjeta);
-    background: var(--color-superficie);
+    background: var(--color-elevado);
     text-align: center;
 }
 
@@ -197,4 +281,43 @@
 
 .estado-vacio p {
     max-width: 32rem;
+}
+
+/* Insignias de estado (los marca js/decoracion.js) */
+[data-estado] {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    justify-self: start;
+    width: fit-content;
+    padding: 0.125rem 0.625rem;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: var(--peso-semibold);
+}
+
+[data-estado]::before {
+    content: "";
+    flex-shrink: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+[data-estado="pendiente"] {
+    background: var(--color-aviso-fondo);
+    color: var(--color-aviso);
+}
+
+[data-estado="confirmado"],
+[data-estado="activo"] {
+    background: var(--color-exito-fondo);
+    color: var(--color-exito);
+}
+
+[data-estado="cancelado"],
+[data-estado="inactivo"] {
+    background: var(--color-peligro-fondo);
+    color: var(--color-peligro);
 }

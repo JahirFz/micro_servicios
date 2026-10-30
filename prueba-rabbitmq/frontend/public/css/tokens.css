@@ -1,13 +1,26 @@
 :root {
     color-scheme: light;
 
-    /* Colores del diseño de Figma */
-    --color-fondo: #ffffff;
-    --color-texto: #111827;
-    --color-secundario: #4b5563;
-    --color-borde: #6b7280;
-    --color-accion: #111827;
+    /* Colores base */
+    --color-fondo: #f5f6fb;
+    --color-texto: #0f172a;
+    --color-secundario: #475569;
+    --color-borde: #64748b;
+    --color-accion: #4f46e5;
+    --color-accion-2: #7c3aed;
+    --color-accion-hover: #4338ca;
     --color-sobre-accion: #ffffff;
+    --color-acento: #0891b2;
+
+    /* Estados */
+    --color-exito: #15803d;
+    --color-exito-fondo: #dcfce7;
+    --color-aviso: #b45309;
+    --color-aviso-fondo: #fef3c7;
+    --color-peligro: #b91c1c;
+    --color-peligro-fondo: #fee2e2;
+    --color-info: #4338ca;
+    --color-info-fondo: #e0e7ff;
 
     /* Tipografía */
     --fuente-principal: "Inter", system-ui, sans-serif;
@@ -28,26 +41,61 @@
     --espacio-32: 2rem;
 
     /* Controles */
-    --radio-control: 0.5rem;
+    --radio-control: 0.625rem;
     --altura-control: 3rem;
 
-    --color-superficie: #f9fafb;
+    --color-superficie: #eef0f8;
     --color-elevado: #ffffff;
-    --color-divisor: #e5e7eb;
-    --radio-tarjeta: 0.75rem;
+    --color-divisor: #e2e8f0;
+    --radio-tarjeta: 1rem;
+
+    /* Profundidad y movimiento */
+    --degradado-accion: linear-gradient(
+        135deg,
+        var(--color-accion),
+        var(--color-accion-2)
+    );
+    --sombra-1:
+        0 1px 2px rgb(15 23 42 / 0.05),
+        0 1px 3px rgb(15 23 42 / 0.07);
+    --sombra-2:
+        0 12px 32px -16px rgb(15 23 42 / 0.25),
+        0 2px 6px rgb(15 23 42 / 0.06);
+    --sombra-accion: 0 10px 24px -10px rgb(79 70 229 / 0.6);
+    --anillo-foco: 0 0 0 4px rgb(79 70 229 / 0.2);
+    --transicion: 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 :root[data-tema="oscuro"] {
     color-scheme: dark;
 
-    --color-fondo: #111827;
-    --color-texto: #f9fafb;
-    --color-secundario: #d1d5db;
-    --color-borde: #9ca3af;
-    --color-accion: #f9fafb;
-    --color-sobre-accion: #111827;
+    --color-fondo: #0b1020;
+    --color-texto: #e2e8f0;
+    --color-secundario: #a3b0c6;
+    --color-borde: #64748b;
+    --color-accion: #818cf8;
+    --color-accion-2: #a78bfa;
+    --color-accion-hover: #a5b4fc;
+    --color-sobre-accion: #0b1020;
+    --color-acento: #22d3ee;
 
-    --color-superficie: #1f2937;
-    --color-elevado: #111827;
-    --color-divisor: #6b7280;
+    --color-exito: #4ade80;
+    --color-exito-fondo: rgb(34 197 94 / 0.14);
+    --color-aviso: #fbbf24;
+    --color-aviso-fondo: rgb(245 158 11 / 0.14);
+    --color-peligro: #f87171;
+    --color-peligro-fondo: rgb(239 68 68 / 0.14);
+    --color-info: #a5b4fc;
+    --color-info-fondo: rgb(129 140 248 / 0.14);
+
+    --color-superficie: #121a2f;
+    --color-elevado: #151d33;
+    --color-divisor: #24304d;
+
+    --sombra-1: 0 1px 2px rgb(0 0 0 / 0.4);
+    --sombra-2:
+        0 16px 40px -18px rgb(0 0 0 / 0.7),
+        0 2px 6px rgb(0 0 0 / 0.3);
+    --sombra-accion: 0 10px 28px -10px rgb(129 140 248 / 0.55);
+    --anillo-foco: 0 0 0 4px rgb(129 140 248 / 0.25);
 }

@@ -22,8 +22,21 @@
 .acceso__volver {
     display: inline-flex;
     align-items: center;
+    gap: 0.375rem;
     min-height: var(--altura-control);
+    color: var(--color-secundario);
     font-size: var(--texto-pequeno);
+    font-weight: var(--peso-semibold);
+    text-decoration: none;
+    transition: color var(--transicion);
+}
+
+.acceso__volver:hover {
+    color: var(--color-accion);
+}
+
+.acceso > .marca {
+    align-self: flex-start;
 }
 
 .acceso__encabezado {
@@ -36,8 +49,37 @@
     gap: 1.25rem;
 }
 
+#estado-acceso {
+    text-align: center;
+}
+
 @media (min-width: 48rem) {
     .acceso {
-        padding: var(--espacio-32) var(--espacio-24);
+        min-height: auto;
+        margin-block: 3rem;
+        padding: var(--espacio-32);
+        border: 1px solid var(--color-divisor);
+        border-radius: 1.5rem;
+        background: var(--color-elevado);
+        box-shadow: var(--sombra-2);
+    }
+
+    /* Franja de color en la parte superior de la tarjeta */
+    .acceso {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .acceso::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 4px;
+        background: linear-gradient(
+            90deg,
+            var(--color-accion),
+            var(--color-accion-2),
+            var(--color-acento)
+        );
     }
 }
